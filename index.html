@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #touchMe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #4CAF50; 
+      color: white;
+      text-align: center;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+  </style>
+
+</head>
+<body>
+  <button id="touchMe">Touch Me</button>
+  <script>
+    const main=document.querySelector("body");
+    const touchMe = document.getElementById('touchMe');
+      touchMe.addEventListener("mouseover",()=>{
+      var lar=window.innerWidth;
+      var hau=window.innerHeight;
+      var x=Math.random()*(lar-touchMe.offsetWidth);
+      var y=Math.random()*(hau-touchMe.offsetHeight);
+
+      touchMe.style.left=x+"px";
+      touchMe.style.top=y+"px";
+      touchMe.style.backgroundColor = getRandomColor();
+      touchMe.style.borderColor = getRandomColor();
+      main.style.backgroundColor = getRandomColor();
+    
+      
+    });
+
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+</html>
